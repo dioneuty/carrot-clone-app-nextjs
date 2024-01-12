@@ -38,3 +38,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 npx create-next-app@12.0.7 --typescript
 npm i next@12.0.7 react@18.0.0-rc.0 react-dom@18.0.0-rc.0
 ```
+
+## tailwind 설정 명령어
+```
+npm install -D tailwindcss postcss autoprefixer
+npm i @tailwindcss/forms
+```
