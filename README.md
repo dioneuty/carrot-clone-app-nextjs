@@ -44,3 +44,6 @@ npm i next@12.0.7 react@18.0.0-rc.0 react-dom@18.0.0-rc.0
 npm install -D tailwindcss postcss autoprefixer
 npm i @tailwindcss/forms
 ```
+
+## 아이콘 - heroicons
+https://heroicons.com/
