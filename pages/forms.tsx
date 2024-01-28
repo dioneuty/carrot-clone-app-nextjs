@@ -17,7 +17,14 @@ interface LoginForm {
 
 export default function Forms() {
 
-  const {register, watch, handleSubmit} = useForm();
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: {errors},
+  } = useForm<LoginForm>({
+    mode: "onChange",
+  });
   // console.log(register('name'));
   // console.log(watch());
 
@@ -28,6 +35,8 @@ export default function Forms() {
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
   }
+
+  console.log(errors);
 
   return (
     <form onSubmit={handleSubmit(onValid, onInvalid)}>
@@ -49,7 +58,9 @@ export default function Forms() {
           },
         })}
         type="email" placeholder='Email'
+        className={`${Boolean(errors.email) ? 'border-red-500' : ''}`}
       />
+      {errors.email?.message}
       <input
         {...register('password', {
           required: 'password is required',
