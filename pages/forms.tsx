@@ -1,5 +1,12 @@
 import React, {useState} from "react";
 
+// todo less code
+// todo better validation
+// todo error (set, clear, display)
+// todo have control over inputs
+// todo deal with events
+// todo easier inputs
+
 export default function Forms() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
