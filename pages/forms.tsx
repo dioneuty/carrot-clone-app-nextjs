@@ -2,7 +2,7 @@ import React from "react";
 import {useForm} from "react-hook-form";
 
 // less code
-// todo better validation
+// better validation
 // todo error (set, clear, display)
 // todo have control over inputs
 // todo deal with events
@@ -10,15 +10,19 @@ import {useForm} from "react-hook-form";
 
 export default function Forms() {
 
-  const {register, watch} = useForm();
+  const {register, watch, handleSubmit} = useForm();
   // console.log(register('name'));
   // console.log(watch());
 
+  const onValid = () => {
+    console.log('valid');
+  }
+
   return (
-    <form>
-      <input {...register('username')} type="text" placeholder='Username' required />
-      <input {...register('email')} type="email" placeholder='Email' required />
-      <input {...register('password')} type="password" placeholder='Password' required />
+    <form onSubmit={handleSubmit(onValid)}>
+      <input {...register('username', {required: true})} type="text" placeholder='Username' />
+      <input {...register('email', {required: true})} type="email" placeholder='Email' />
+      <input {...register('password', {required: true})} type="password" placeholder='Password' />
       <input type="submit" value="Create Account" />
     </form>
   );
