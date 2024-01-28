@@ -37,12 +37,25 @@ export default function Forms() {
           minLength: {
             message: 'the username should be longer than 5 chars',
             value: 5,
-          }
+          },
         })}
         type="text" placeholder='Username'
       />
-      <input {...register('email', {required: 'email is required'})} type="email" placeholder='Email' />
-      <input {...register('password', {required: 'password is required'})} type="password" placeholder='Password' />
+      <input
+        {...register('email', {
+          required: 'email is required',
+          validate: {
+            notGmail: (value) => !value.includes('@gmail.com') || 'Gmail is not allowed',
+          },
+        })}
+        type="email" placeholder='Email'
+      />
+      <input
+        {...register('password', {
+          required: 'password is required',
+        })}
+        type="password" placeholder='Password'
+      />
       <input type="submit" value="Create Account" />
     </form>
   );
