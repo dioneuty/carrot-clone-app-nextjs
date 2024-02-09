@@ -1,6 +1,6 @@
 import {NextApiRequest, NextApiResponse} from "next";
-import withHandler from "../../../libs/server/withHandler";
-//import client from '../../../libs/server/client'
+import withHandler from "@libs/server/withHandler";
+import client from "@libs/server/client";
 
 async function handler(req:NextApiRequest, res:NextApiResponse){
     /*await client.user.create({data: {
