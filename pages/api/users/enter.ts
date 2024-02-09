@@ -1,7 +1,8 @@
 import {NextApiRequest, NextApiResponse} from "next";
-import client from '../../../libs/server/client'
+import withHandler from "../../../libs/server/withHandler";
+//import client from '../../../libs/server/client'
 
-export default async function handler(req:NextApiRequest, res:NextApiResponse){
+async function handler(req:NextApiRequest, res:NextApiResponse){
     /*await client.user.create({data: {
         email: "hi",
         name: "hi",
@@ -9,13 +10,18 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse){
 
     res.json({
         ok:true, data:'client test'
-    })*/
+    })
 
     if(req.method !== 'POST'){
         res.status(401).end();
     }
-
     console.log(req.body['email']);
-    //res.status(200).end();
      res.json({ok:true});
+
+    */
+  console.log(req.body);
+
+    return res.status(200).end();
 }
+
+export default withHandler('POST', handler);
